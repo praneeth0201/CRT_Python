@@ -26,29 +26,34 @@ def is_valid(n,g,d):
         else:
             temp=temp//10
     return True
-
-# n=int(input())
-# g=int(input("Enter the given Base: "))
-# d=int(input("Enter the desired base"))
-# if((g>=1 and g<=10) and (d>=1 and d<=10)):
-#     if(is_valid(n,g)):
-#         if()
-#     else:
-#         print("the given number with the base is not valid")
-# else:
-#     print("The given base or desired base should be between 1-10")
-
-
-def to_base_ten(n,g):
+def convert(n,g,d):
     temp=n
     x=0
     desired=0
     while(temp!=0):
-        desired=desired+temp%10*(g**x)
+        desired=desired+temp%d*(g**x)
         x+=1
-        temp=temp//10
+        temp=temp//d
     return(desired)
-def to_ten_desired(n,d):
-    
+
+n=int(input("enter a number to convert: "))
+g=int(input("Enter the given Base: "))
+d=int(input("Enter the desired base: "))
+if((g>=1 and g<=10) and (d>=1 and d<=10)):
+    if(is_valid(n,g,d)):
+        if(g==10 or d==10):
+            print(f"the desired value is {convert(n,g,d)} ")
+        else:
+            x=convert(n,g,10)
+            print(convert(x,10,d))
+    else:
+        print("the given number with the base is not valid")
+else:
+    print("The given base or desired base should be between 1-10")
+
+
+
+
+
 
 
